@@ -56,7 +56,7 @@ const Navbar = () => {
       </button>
 
       {/* Menu toggler button */}
-      <button className="menu-toggler-btn md:hidden" onClick={handleMenu}>
+      <button className="menu-toggler-btn md:hidden w-6 h-6" onClick={handleMenu}>
         <Image src={menuToggler} alt="menu-toggler-icon" />
       </button>
     </header>

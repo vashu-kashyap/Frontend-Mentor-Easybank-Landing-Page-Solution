@@ -41,7 +41,7 @@ const Navbar = () => {
               <li key={index} className="list-item">
                 <Link
                   href={"/"}
-                  className="menu-link text-light-gray text-2xl leading-[18px] font-medium md:font-light md:text-sm"
+                  className="menu-link text-light-gray text-2xl leading-[18px] font-medium md:font-light md:text-sm border-b-[3px] pb-8 border-transparent hover:border-[#31d35c] transition-all ease-in-out duration-300"
                 >
                   {item}
                 </Link>
@@ -51,7 +51,7 @@ const Navbar = () => {
         </ul>
       </nav>
 
-      <button className="action-btn px-[35px] py-[13px] rounded-full text-sm font-normal hidden sm:block leading-5 text-white w-[195px]  ">
+      <button className="action-btn px-[35px] py-[13px] rounded-full text-sm font-normal hidden sm:block leading-5 text-white w-[195px] hover:opacity-50 transition-opacity ease-in-out duration-300">
         Request Invite
       </button>
 

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../public/logo.svg";
 import hamburger from "../public/icon-hamburger.svg";
 import close from "../public/icon-close.svg";
@@ -11,7 +11,7 @@ const Navbar = () => {
   const [menuToggler, setMenuToggler] = useState(hamburger);
 
   // Function to toggle the menu and change the menu toggler icon
-  const handleMenu = () => {
+  const toggleMenu = () => {
     if (menuToggler === hamburger) {
       setMenu("block");
       setMenuToggler(close);
@@ -20,6 +20,39 @@ const Navbar = () => {
       setMenuToggler(hamburger);
     }
   };
+
+  // Function to close the menu
+  const closeMenu = () => {
+    setMenu("hidden");
+    setMenuToggler(hamburger);
+  };
+
+  // Add event listeners to close menu when clicking on a navigation link or scrolling
+  useEffect(() => {
+    const handleLinkClick = () => {
+      closeMenu();
+    };
+
+    const handleScroll = () => {
+      closeMenu();
+    };
+
+    // Add event listeners
+    document.querySelectorAll(".menu-link").forEach((link) => {
+      link.addEventListener("click", handleLinkClick);
+    });
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listeners when the component unmounts
+    return () => {
+      document.querySelectorAll(".menu-link").forEach((link) => {
+        link.removeEventListener("click", handleLinkClick);
+      });
+
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <header className="w-full flex justify-between items-center relative pl-6 px-8 py-5 bg-white shadow-sm z-50 md:px-48">
@@ -56,7 +89,7 @@ const Navbar = () => {
       </button>
 
       {/* Menu toggler button */}
-      <button className="menu-toggler-btn md:hidden w-6 h-6" onClick={handleMenu}>
+      <button className="menu-toggler-btn md:hidden w-6 h-6" onClick={toggleMenu}>
         <Image src={menuToggler} alt="menu-toggler-icon" />
       </button>
     </header>

@@ -33,7 +33,7 @@ You can view a screenshot of my solution above.
 ### Links
 
 - [Solution URL](https://github.com/vashu-kashyap/Frontend-Mentor-Easybank-Landing-Page-Solution)
-- [Live Site URL](https://your-live-site-url.com)
+- [Live Site URL](https://easy-bank-next-js-tailwind-css.netlify.app/)
 
 ## My Process
 
